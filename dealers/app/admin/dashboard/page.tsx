@@ -38,7 +38,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchPlots = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:8000/get-plots/');
+        const res = await axios.get('https://jamila.pythonanywhere.com/get-plots/');
         setPlots(res.data);
       } catch (err) {
         console.error('Failed to fetch plots', err);
@@ -47,7 +47,7 @@ export default function AdminDashboard() {
 
     const fetchBookings = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:8000/get-bookings/');
+        const res = await axios.get('https://jamila.pythonanywhere.com/get-bookings/');
         setBookings(res.data);
       } catch (err) {
         console.error('Failed to fetch bookings', err);
@@ -74,7 +74,7 @@ export default function AdminDashboard() {
       formData.append('image', newPlot.image);
 
       try {
-        const res = await axios.post('http://127.0.0.1:8000/add-plot/', formData, {
+        const res = await axios.post('https://jamila.pythonanywhere.com/add-plot/', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
 
@@ -95,7 +95,7 @@ export default function AdminDashboard() {
     if (removeId.trim() === '') return alert('Enter Plot Number');
 
     try {
-      await axios.post('http://127.0.0.1:8000/remove-plot/', { plot_number: removeId });
+      await axios.post('https://jamila.pythonanywhere.com/remove-plot/', { plot_number: removeId });
       setPlots(plots.filter((plot) => plot.plot_number !== removeId));
       setRemoveId('');
       alert('Plot removed');
@@ -107,7 +107,7 @@ export default function AdminDashboard() {
 
   const handleRemoveBooking = async (bookingId: number) => {
     try {
-      await axios.post('http://127.0.0.1:8000/remove-booking/', { id: bookingId });
+      await axios.post('https://jamila.pythonanywhere.com/remove-booking/', { id: bookingId });
       setBookings(bookings.filter((b) => b.id !== bookingId));
       alert('Booking removed successfully!');
     } catch (err) {

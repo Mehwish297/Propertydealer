@@ -10,7 +10,7 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    // Dummy credentials (you can replace this with backend check later)
+    // will add firebase later)
     if (email === 'admin@saanplots.com' && password === 'admin123') {
       router.push('/admin/dashboard');
     } else {

@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPlots = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/get-plots/');
+        const response = await axios.get('https://jamila.pythonanywhere.com/get-plots/');
         setPlots(response.data);
       } catch (error) {
         console.error('Failed to fetch plots:', error);

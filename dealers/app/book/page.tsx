@@ -56,7 +56,7 @@ export default function BookPlotPage() {
 
   const handleFinalConfirm = async () => {
     try {
-      await axios.post('http://127.0.0.1:8000/book-plot/', {
+      await axios.post('https://jamila.pythonanywhere.com/book-plot/', {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
