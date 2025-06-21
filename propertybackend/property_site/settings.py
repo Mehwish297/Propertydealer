@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-aarfqw(xvm61-a8+9q$nbi$@l77s(c4@#&f97a)!6f12%y=^tm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Jamila.pythonanywhere.com']
 
 
 # Application definition
@@ -55,6 +55,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+]
+CORS_ALLOWED_ORIGINS = [
+    "https://propertydealer-nu.vercel.app",
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -92,12 +95,23 @@ WSGI_APPLICATION = 'property_site.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get('DATABASE_URL'),
+#         conn_max_age=600
+#     )
+# }
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Jamila$default',  
+        'USER': 'Jamila',
+        'PASSWORD': 'Hanzala1!',  
+        'HOST': 'Jamila.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
